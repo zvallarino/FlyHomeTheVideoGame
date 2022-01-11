@@ -5,20 +5,13 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Wrote a whole read me but now its missing in action. To log in on the main account the username is Green and the password is blue.
 
-* System dependencies
+* As of writing this, only flyhome you can play right now. By 1/17, I should have ISW and Fetch-A-Sketch running. TBD if I deploy QTE or Weeb Warriors II
 
-* Configuration
+* Controls w,a,s,d to move. l to shoot. 
 
-* Database creation
+* First level doge the blocks. Second Level shoot the things down. To go back to the mainmenu, just change the route to like signin
 
-* Database initialization
+* Will be updated
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
