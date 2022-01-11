@@ -1,8 +1,9 @@
 import './App.css';
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AppPage from './AppPage';
 import Home from './Home';
+import TestingUser from './TestingUser';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +17,8 @@ function App() {
   
   
   const [user, setUser] = useState(null);
+  const backgroundHomeRef = useRef(true);
+  const [backgroundState,setBackground] = useState(false);
 
   useEffect(() => {
     fetch("/me").then((resp) => {
@@ -33,11 +36,11 @@ function App() {
   return (
 
       <div className="App">
-        <BrowserRouter>
+   
           <Route path="/">
             <Home user = {user} setUser = {setUser}/>
           </Route>
-          </BrowserRouter>
+      
       </div>
 
   );}

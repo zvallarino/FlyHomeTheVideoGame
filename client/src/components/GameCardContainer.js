@@ -5,6 +5,7 @@ import GameCard from './GameCard';
 
 
 function GameCardContainer({user}) {
+  console.log(user)
 
 
   const [games,setGames] = useState([])
@@ -16,8 +17,10 @@ function GameCardContainer({user}) {
   useEffect(()=>{
     fetch(`/users/${user.id}`)
     .then((r)=> r.json())
-    .then((user)=> setGames(user.games))
+    .then((user)=>setGames(user.games))
 },[])
+
+//setGames(user.games)
 
 let gameCardz = games.map((game)=><GameCard game={game} user = {user} key = {game.id}/>)
 
@@ -26,6 +29,7 @@ let gameCardz = games.map((game)=><GameCard game={game} user = {user} key = {gam
   return (
     <>
   {gameCardz}
+  
     </>
   );
 }

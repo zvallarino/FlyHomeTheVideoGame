@@ -11,6 +11,7 @@ import FlyHomeLevel2 from './FlyHomeLevel2';
 import HomeLogo from './HomeLogo';
 
 function AppPage({setUser, user}) {
+  console.log(user)
 
 
   const [disppearFlyHome, setDisappearFlyHome] = useState(false)
@@ -56,10 +57,8 @@ function AppPage({setUser, user}) {
   return (
     <>  
 
-      <Switch >
-      <Route exact path="/RedFish">
-        <GameStore user = {user} /> 
-      </Route>
+    <Switch>
+
       <Route exact path = "/titleflyhome">
         <FlyHomeTitleScreen setDisappearFlyHome = {setDisappearFlyHome}/>
       </Route>
@@ -73,7 +72,8 @@ function AppPage({setUser, user}) {
         <FlyHomeLevel2 />
       </Route>
   
-      </Switch>
+      </Switch> 
+  
 
       <div className = {disppearFlyHome? "disappearX" : ""}>
         <div className = "AppPage">
