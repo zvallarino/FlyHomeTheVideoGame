@@ -1,6 +1,6 @@
 import './App.css';
 import { Switch, Route, useHistory, Router, NavLink } from "react-router-dom";
-import {useState,useRef} from "react"
+import {useState,useRef, useEffect} from "react"
 import GameStore from './GameStore';
 import FlyHomeLevel1 from './FlyHomeLevel1';
 import FlyHomeTitleScreen from './FlyHomeTitleScreen';
@@ -10,12 +10,20 @@ import GameCardContainer from './GameCardContainer';
 import FlyHomeLevel2 from './FlyHomeLevel2';
 import HomeLogo from './HomeLogo';
 
-function AppPage({setUser, user}) {
-  console.log(user)
+function AppPage({setUser, user, backgroundHomeRef, backgroundState, setBackground, backgroundGroundSetter}) {
 
 
   const [disppearFlyHome, setDisappearFlyHome] = useState(false)
   const [dotState,setState] = useState(false)
+
+  
+  useEffect(()=>{ 
+    console.log("fired")
+    backgroundGroundSetter()
+    console.log(backgroundHomeRef.current)
+  },[])
+
+
 
 
   const reddotgreendot = ['https://i.imgur.com/A3q7L4F.png','https://i.imgur.com/mFcaShe.png']

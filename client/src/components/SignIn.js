@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 
-function SignIn({setUser, onLogin}) {
+function SignIn({setUser, onLogin, backgroundHomeRef, setBackground}) {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -25,6 +25,8 @@ function SignIn({setUser, onLogin}) {
       if (resp.ok) {
         resp.json().then((user) =>{
           setUser(user)
+          backgroundHomeRef.current = false
+          setBackground(dogs=>!dogs)
           history.push("/dashboard")
         });
       } else {

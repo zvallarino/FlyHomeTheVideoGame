@@ -5,7 +5,6 @@ import GameCard from './GameCard';
 
 
 function GameCardContainer({user}) {
-  console.log(user)
 
 
   const [games,setGames] = useState([])

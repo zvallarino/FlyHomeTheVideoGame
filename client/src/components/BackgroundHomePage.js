@@ -1,11 +1,13 @@
 import React, { useRef,useEffect } from 'react';
 import './App.css';
 
-function BackgroundHomeCanvas({canvasChoiceRef}) {
+function BackgroundHomePage({canvasChoiceRef, backgroundHomeRef, backgroundState}) {
 
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
   
+  console.log(backgroundHomeRef)
+  console.log(backgroundState)
 
   // Yellow, Green, Main
   const canvasOptions = ["https://i.imgur.com/Zs6FLf3.png","https://i.imgur.com/lTXQLAc.png","https://i.imgur.com/sCwapKA.png"]
@@ -33,7 +35,6 @@ function BackgroundHomeCanvas({canvasChoiceRef}) {
     context.lineWidth = 5
     contextRef.current = context;
 
-  
     const space = {
         w:SCREEN_WIDTH,
         h:SCREEN_HEIGHT,
@@ -57,13 +58,11 @@ function BackgroundHomeCanvas({canvasChoiceRef}) {
     const update = () => {
      
     drawSpace()
-      requestAnimationFrame(update)
       ;
     }
 
     update()
-  
-  },[])
+  },[backgroundState])
 
 
   //SCREEN HEIGHT/WIDTH
@@ -82,4 +81,4 @@ function BackgroundHomeCanvas({canvasChoiceRef}) {
   );
 }
 
-export default BackgroundHomeCanvas;
+export default BackgroundHomePage;

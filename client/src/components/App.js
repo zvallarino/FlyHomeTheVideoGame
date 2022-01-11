@@ -7,6 +7,8 @@ import TestingUser from './TestingUser';
 
 function App() {
   const [count, setCount] = useState(0);
+  const backgroundHomeRef = useRef(true);
+  const [backgroundState,setBackground] = useState(false);
 
 
   // useEffect(() => {
@@ -14,23 +16,26 @@ function App() {
   //     .then((r) => r.json())
   //     .then((data) => setCount(data.count));
   // }, []);
+
+  const backgroundGroundSetter = () => {
+    backgroundHomeRef.current = false;
+    setBackground(whales=>!whales)
+  }
   
   
   const [user, setUser] = useState(null);
-  const backgroundHomeRef = useRef(true);
-  const [backgroundState,setBackground] = useState(false);
+
 
   useEffect(() => {
     fetch("/me").then((resp) => {
       if (resp.ok) {
         resp.json().then(setUser);
-        console.log(user)
       }
     });
   }, []);
 
   if (user) {
-    return <AppPage setUser={setUser} user={user} />;
+    return <AppPage backgroundGroundSetter = {backgroundGroundSetter} setUser={setUser} user={user} backgroundHomeRef ={backgroundHomeRef} backgroundState ={backgroundState} setBackground ={setBackground} />;
   }
 
   return (
@@ -38,7 +43,7 @@ function App() {
       <div className="App">
    
           <Route path="/">
-            <Home user = {user} setUser = {setUser}/>
+            <Home user = {user} setUser = {setUser} backgroundHomeRef ={backgroundHomeRef} backgroundState ={backgroundState} setBackground ={setBackground}/>
           </Route>
       
       </div>

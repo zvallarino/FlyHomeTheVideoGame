@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function SignUp({ setUser }) {
+function SignUp({ setUser, backgroundHomeRef, setBackground }) {
   const [profPicUrl, setProfPicUrl] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +27,12 @@ const handleSubmit = (e) => {
     }).then((resp) => {
       setIsLoading(false);
       if (resp.ok) {
-        resp.json().then((user) => setUser(user));
+        resp.json().then((user) => {
+
+          setUser(user)
+          backgroundHomeRef.current = false
+          setBackground(dogs=>!dogs)
+        });
       } else {
         resp.json().then((data) => setErrors(data.errors));
       }
