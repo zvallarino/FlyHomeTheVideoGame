@@ -67,6 +67,16 @@ function SignIn({setUser, onLogin, backgroundHomeRef, setBackground}) {
             <button type="submit">{isLoading ? "Loading..." : "Log In"}</button>
           </div>
         </form>
+        <div className = "InformationBox">
+          Please use
+          <p>
+          Username: Green
+          </p>
+          <p>
+          Password: blue
+          </p>
+          to access all games
+        </div>
       </div>
     </div>
   );

@@ -454,6 +454,28 @@ code {
   height: 100vh;
 }
 
+.InformationBox{
+  display:flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  border: 10px solid rgb(0, 0, 0);
+  background-color: white;
+  font-size: .8em;
+  border-radius: 15%;
+  margin-top: 2vh;
+  margin-left: 2vw;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+
+}
+
+.InformationBox p{
+  display:flex;
+  margin-top:0;
+  margin-bottom:0;
+}
+
 .homesignup{
   display:flex;
   box-sizing: border-box;
